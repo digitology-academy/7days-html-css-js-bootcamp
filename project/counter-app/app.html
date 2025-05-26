@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter Application</title>
+</head>
+<body>
+    <h1>Counter: 
+        <span id="counter">0</span>
+    </h1>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <button id="reset">Reset</button>
+    <script>
+        let count = 0;
+        let counterDisplay = document.getElementById("counter");
+        let incrementBtn = document.getElementById("increment");
+        let decrementBtn = document.getElementById("decrement");
+        let resetBtn = document.getElementById("reset");
+
+        // Increment button
+        incrementBtn.addEventListener("mouseover", function() {
+            count++;
+            if (count > 10) {
+                alert("Counter limit reached!");
+                count = 10;
+            }
+            counterDisplay.innerHTML = "<span style='color: green;'>" + count + "</span>";
+        });
+
+        // Decrement button
+        decrementBtn.addEventListener("click", function() {
+            count--;
+            if (count < 0) {
+                count = 0;
+            }
+            counterDisplay.innerHTML = "<span style='color: red;'>" + count + "</span>";
+        });
+
+        // Reset button
+        resetBtn.addEventListener("click", function() {
+            count = 0;
+            counterDisplay.textContent = count;
+        });
+
+        // Log even numbers up to count
+        for (let i = 0; i <= count; i++) {
+            if (i % 2 === 0) {
+                console.log(`Even number: ${i}`);
+            }
+        }
+    </script>
+</body>
+</html>

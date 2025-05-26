@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+</head>
+<body>
+    <h2>User Details</h2>
+    <button id="addUser">Add User</button>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+    </table>
+
+
+    <script>
+        document.getElementById("addUser").addEventListener("click", function() {
+            let name = prompt("Enter name:");
+            let email = prompt("Enter email:");
+            let age = prompt("Enter age:");
+
+
+            let confirm = window.confirm(`Are you sure you want to add this user?\nName: ${name}\nEmail: ${email}\nAge: ${age}`);
+            if (!confirm) {
+                alert("User addition cancelled.");
+                return;
+            }
+
+            let table = document.querySelector("table");
+            let newRow = table.insertRow(-1);
+            newRow.innerHTML = `<td>${name}</td><td>${email}</td><td>${age}</td>`;
+        });
+    </script>
+</body>
+</html>
